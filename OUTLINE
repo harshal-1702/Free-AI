@@ -1,0 +1,36 @@
+
+OfflineNetAI/
+│
+├── android/
+├── ios/
+├── windows/
+├── linux/
+├── web/
+├── macos/
+│
+├── assets/
+│   ├── icons/
+│   ├── images/
+│   ├── models/
+│   └── themes/
+│
+├── downloads/
+│
+├── lib/
+│   ├── ai/
+│   ├── browser/
+│   ├── database/
+│   ├── downloader/
+│   ├── models/
+│   ├── screens/
+│   ├── search/
+│   ├── services/
+│   ├── utils/
+│   ├── widgets/
+│   ├── main.dart
+│   └── app.dart
+│
+├── test/
+│
+├── pubspec.yaml
+└── README.md
