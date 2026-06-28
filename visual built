@@ -1,0 +1,66 @@
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.7.0
+flutter pub get
+import 'package:webview_flutter/webview_flutter.dart';
+class BrowserPage extends StatefulWidget {
+  const BrowserPage({super.key});
+
+  @override
+  State<BrowserPage> createState() => _BrowserPageState();
+}
+
+class _BrowserPageState extends State<BrowserPage> {
+  late final WebViewController controller;
+  final TextEditingController urlController =
+      TextEditingController(text: "https://example.com");
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse("https://example.com"));
+  }
+
+  void loadUrl() {
+    String url = urlController.text.trim();
+    if (!url.startsWith("http")) {
+      url = "https://$url";
+    }
+    controller.loadRequest(Uri.parse(url));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: urlController,
+                  decoration: const InputDecoration(
+                    hintText: "Enter URL",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_forward),
+                onPressed: loadUrl,
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          child: WebViewWidget(controller: controller),
+        ),
+      ],
+    );
+  }
+}
