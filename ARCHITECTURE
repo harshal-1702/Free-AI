@@ -1,0 +1,18 @@
+               Internet
+                    │
+                    ▼
+          Download Engine
+                    │
+     ┌──────────────┴──────────────┐
+     │                             │
+ Website Storage             File Storage
+     │                             │
+     └──────────────┬──────────────┘
+                    ▼
+             SQLite Database
+                    │
+            Search Engine
+                    │
+            Offline AI Engine
+                    │
+               Flutter UI
